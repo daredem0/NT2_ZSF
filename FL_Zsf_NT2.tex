@@ -1,0 +1,115 @@
+%%%%%Präambel%%%%%
+
+\documentclass[12pt,a4paper]{report}%Schriftgröße, Papierformat einstellen
+%\documentclass{scrbook}
+\usepackage[top=30mm,bottom=30mm]{geometry}
+\usepackage{lipsum}
+\usepackage{csquotes}
+%Pakete laden zur deutschen Rechtschreibung und für Umlaute
+\usepackage[T1]{fontenc}
+\usepackage[ngerman]{babel}
+\usepackage[utf8]{inputenc} %für Windows, Linux
+%\usepackage[applemac]{inputenc} %für Mac
+%\usepackage{xcolor}
+\usepackage[official]{eurosym}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{cancel}
+\usepackage{titlesec}
+\usepackage{cite}
+\usepackage{filecontents}
+\usepackage{tabularx}
+\usepackage{harvard}
+\usepackage{units}
+\usepackage{longtable} 
+\usepackage{multirow}
+\usepackage{chngcntr}
+\usepackage{stmaryrd}
+\usepackage{array}
+\usepackage{autobreak}
+\usepackage{booktabs}
+\usepackage{float}
+\usepackage{wrapfig}
+\usepackage{hhline}
+\let\harvardleftorig\harvardleft
+%\usepackage[round]{natbib}
+%\usepackage{hyperref}
+\usepackage[nottoc,numbib]{tocbibind}
+\usepackage[nottoc]{tocbibind}
+\usepackage{siunitx}
+\usepackage{esvect}
+\usepackage{trfsigns}
+
+%Pakete laden zu mathematischen Symbolen etc.
+\usepackage{calc} 
+\usepackage{amsmath,amssymb,amsthm,amsopn}
+\usepackage{scrpage2}
+\pagestyle{scrheadings}
+\clearscrheadfoot
+\automark[chapter]{section}
+\ofoot{\pagemark}
+\ifoot{}
+\chead{\headmark}
+\setfootsepline{1pt}
+\setheadsepline{1pt}
+%\setheadsepline[\textwidth+20pt]{0.5pt}
+
+%Inhaltsverzeichnis mit Links erstellen
+\usepackage[colorlinks,
+pdfpagelabels,
+pdfstartview = FitH,
+bookmarksopen = true,
+bookmarksnumbered = true,
+linkcolor = black,
+plainpages = false,
+hypertexnames = false,
+citecolor = black] {hyperref}
+
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+
+\titleformat{\paragraph}
+{\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
+\titlespacing*{\paragraph}
+{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+
+\newcommand{\subsubsubsection}{\paragraph}
+
+\input{./tex/helpers/helpers.tex}
+\input{./tex/helpers/maths.tex}
+\input{./tex/helpers/citation.tex}
+\input{./tex/helpers/formula_functions.tex}
+\newcommand{\tabitem}{~~\llap{\textbullet}~~}
+
+\renewcommand{\theequation}{\arabic{section}.\arabic{subsection}
+.\arabic{equation}}
+%Setzt den equation-Zaehler nach jeder Seite zurueck
+%\numberwithin{equation}{subsection}	
+\numberwithin{equation}{section}
+%\setlength\abovedisplayskip{0pt}
+
+
+%jetzt beginnt das eigentliche Dokument
+\begin{document}
+\bibliographystyle{agsm}
+
+\author{}
+\input{./tex/begin/front.tex}
+\input{./tex/begin/quote.tex}
+\input{./tex/begin/begin.tex}
+
+
+%
+\input{./tex/ch1/chapter1.tex}
+\input{./tex/ch2/chapter2.tex}
+\input{./tex/ch3/chapter3.tex}
+ 
+
+\newpage
+\input{./tex/che/chapter_end.tex}
+
+\nocite{*}
+\bibliography{./bib/lit}
+
+\end{document}
