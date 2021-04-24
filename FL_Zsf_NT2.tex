@@ -2,7 +2,7 @@
 %Document Style/Page Style
 \documentclass[12pt,a4paper]{article}%Schriftgröße, Papierformat einstellen
 %\documentclass{scrbook}
-\usepackage[top=30mm,bottom=30mm]{geometry}
+\usepackage[top=20mm,bottom=20mm,left=10mm,right=10mm]{geometry}
 \usepackage{lipsum}
 \usepackage[T1]{fontenc}
 \usepackage[ngerman]{babel}
@@ -12,10 +12,10 @@
 \usepackage[nottoc,numbib]{tocbibind}%Add or not add bibliography/index to table of content
 
 %header and footer options
-\usepackage{scrpage2} %footers and headers
+\usepackage{scrlayer-scrpage} %footers and headers
 \pagestyle{scrheadings} %style of headers
 \clearscrheadfoot %reset everything
-\automark[chapter]{section}
+\automark[section]{section}
 \ofoot{\pagemark}
 \ifoot{}
 \chead{\headmark}
